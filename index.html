@@ -1,0 +1,411 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlinkPage - Launch Your Business in Minutes</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --white-color: #ffffff;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --font-family: 'Inter', sans-serif; /* A clean, modern font */
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--dark-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--white-color);
+            padding: 20px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background-color: var(--white-color);
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--dark-color);
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        .features-section {
+            padding: 60px 0;
+            background-color: var(--white-color);
+            margin-bottom: 40px;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item i { /* Placeholder for icons if added */
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-item p {
+            color: var(--secondary-color);
+            font-size: 1.1em;
+        }
+
+        .pricing-section {
+            padding: 60px 0;
+            background-color: var(--light-color);
+            margin-bottom: 40px;
+        }
+
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--white-color);
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .pricing-card .price {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .price span {
+            font-size: 1em;
+            font-weight: normal;
+            color: var(--secondary-color);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+            color: var(--secondary-color);
+            flex-grow: 1; /* Allows features list to take available space */
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-card ul li::before {
+            content: '✓'; /* A checkmark */
+            color: var(--success-color);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .pricing-card .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .pricing-card .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .features-section h2, .pricing-section h2 {
+                font-size: 2em;
+            }
+            .features-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Link to a modern font like Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">BlinkPage</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#" class="btn">Sign Up Free</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Your Landing Page, Built in Minutes. No Code Needed.</h1>
+            <p>BlinkPage empowers freelancers, coaches, and creators to launch beautiful, high-converting landing pages with integrated Stripe checkout in just a few clicks. Start selling online today!</p>
+            <a href="#" class="btn">Start Your Free 14-Day Trial</a>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2>Effortless Tools for Your Business</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>AI-Powered Content</h3>
+                    <p>Generate compelling headlines, descriptions, and CTAs with AI to perfectly match your offer.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Stunning Templates</h3>
+                    <p>Choose from 5 versatile starter templates optimized for Coaching, Courses, Services, SaaS, and Affiliates.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>One-Click Checkout</h3>
+                    <p>Seamlessly integrate Stripe to start collecting payments instantly, without any transaction fees on basic plans.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Drag-and-Drop Editor</h3>
+                    <p>Easily customize layouts and content with our intuitive drag-and-drop interface.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Custom Domains</h3>
+                    <p>Publish your page to a professional custom domain or a free blink.page subdomain.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Essential Analytics</h3>
+                    <p>Track page views, conversion rates, and revenue snapshots to monitor your campaign performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2>Simple, Scalable Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$9<span>/mo</span></div>
+                    <ul>
+                        <li>AI Copy & Visuals</li>
+                        <li>5 Starter Templates</li>
+                        <li>Stripe Integration</li>
+                        <li>Basic Analytics</li>
+                        <li>blink.page Subdomain</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Pro</h3>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul>
+                        <li>All Starter Features</li>
+                        <li>Custom Domain Support</li>
+                        <li>Advanced Analytics</li>
+                        <li>Embeddable Checkout Widgets</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Plan</a>
+                </div>
+                 <div class="pricing-card">
+                    <h3>Add-ons</h3>
+                    <div class="price">Custom Price</div>
+                    <ul>
+                        <li>Custom Domain Setup</li>
+                        <li>White-label Branding</li>
+                        <li>Quick-Start Onboarding ($49-$99 one-time)</li>
+                        <li>Dedicated Account Manager</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 BlinkPage. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
