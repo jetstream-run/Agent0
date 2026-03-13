@@ -1,0 +1,389 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlinkPage - Your AI-Powered Landing Page Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007aff;
+            --secondary-color: #f0f2f5;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #fff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--light-text);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background-color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            padding: 60px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .feature-item p {
+            color: var(--light-text);
+        }
+
+        .pricing {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-plan {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--secondary-color);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-plan:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 122, 255, 0.2);
+        }
+
+        .pricing-plan h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .pricing-plan .price {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pricing-plan .price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--light-text);
+        }
+
+        .pricing-plan ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            text-align: left;
+            color: var(--light-text);
+        }
+
+        .pricing-plan ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .pricing-plan ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .pricing-plan .cta-button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pricing-plan .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .pricing-plan.pro {
+            border: 2px solid var(--primary-color);
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .pricing-plan.pro h3,
+        .pricing-plan.pro .price,
+        .pricing-plan.pro ul li {
+            color: var(--white);
+        }
+
+        .pricing-plan.pro .price span {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-plan.pro .cta-button {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .pricing-plan.pro .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: var(--dark-text);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 40px 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">BlinkPage</a>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#cta">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Your Product, Live in Minutes.</h1>
+            <p>BlinkPage is the no-code AI-powered landing page builder with integrated checkout. Effortlessly create polished pages and start collecting payments, instantly.</p>
+            <a href="#cta" class="cta-button">Start Your Free Trial</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Unlock Your Potential with BlinkPage</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>AI-Powered Content</h3>
+                    <p>Generate compelling headlines, descriptions, and calls to action in seconds with our advanced AI.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Stunning Templates</h3>
+                    <p>Choose from 5 professionally designed starter templates for Coaching, Courses, Services, SaaS, and Affiliate offers.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>One-Click Stripe Checkout</h3>
+                    <p>Seamlessly integrate Stripe to securely collect payments without any per-transaction fees.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Simple Drag-and-Drop</h3>
+                    <p>Customize your page layout with intuitive drag-and-drop editing – no coding required.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Publish Instantly</h3>
+                    <p>Go live on a custom domain or a blink.page subdomain with just a few clicks.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Basic Analytics</h3>
+                    <p>Track page views, conversion rates, and revenue snapshots to optimize your campaigns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Simple, Scalable Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-plan">
+                    <h3>Starter</h3>
+                    <div class="price">$9<span>/mo (billed annually)</span></div>
+                    <ul>
+                        <li>AI Copy & Visuals</li>
+                        <li>5 Starter Templates</li>
+                        <li>Stripe Integration</li>
+                        <li>Basic Analytics</li>
+                        <li>Publish to blink.page</li>
+                    </ul>
+                    <a href="#cta" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-plan pro">
+                    <h3>Pro</h3>
+                    <div class="price">$29<span>/mo (billed annually)</span></div>
+                    <ul>
+                        <li>All Starter Features</li>
+                        <li>Custom Domain Publishing</li>
+                        <li>White-label Branding</li>
+                        <li>Advanced Analytics</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#cta" class="cta-button">Start Your Free Trial</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Onboarding Add-on</h3>
+                    <div class="price">$79<span> (one-time)</span></div>
+                    <ul>
+                        <li>Jumpstart your first campaign</li>
+                        <li>Personalized setup assistance</li>
+                        <li>Strategy consultation</li>
+                    </ul>
+                    <a href="#cta" class="cta-button">Learn More</a>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-style: italic; color: var(--light-text);">All plans include a 14-day free trial. No per-transaction fees.</p>
+        </div>
+    </section>
+
+    <section id="cta" class="hero" style="background-color: var(--primary-color); color: var(--white); padding: 60px 0;">
+        <div class="container">
+            <h1 style="font-size: 40px;">Ready to Sell Online?</h1>
+            <p style="max-width: 600px; font-size: 18px; opacity: 0.9;">Stop waiting, start earning. BlinkPage makes it incredibly easy to launch your business online and start collecting payments today.</p>
+            <a href="#" class="cta-button" style="background-color: var(--white); color: var(--primary-color);">Start Your Free 14-Day Trial</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 BlinkPage. All rights reserved.</p>
+            <p><a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
